@@ -18,5 +18,6 @@ pause
 ####ignore 文件不生效的话 是因为忽略的文件不能被add ，所以清一下缓存 git rm -r --cached .   在重新add就行了
 ####项目首次使用proto ，--*_out=生成文件目录 最后一个空格 之后输入文件的路经
 ####.proto文件最后转化为go文件，目前项目里用到比较简单，紧紧是用来当做请求和响应的参数，proto其实是一个序列化的工具
+####test1.go 使用proto文件去进去传输，prod_main 使用 普通.go文件去调用
 #### prod_main.go 相当于服务、可以通过test.go 去掉，prod_main.go  ,也可以通过postman去掉
 ###第二天
