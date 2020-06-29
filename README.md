@@ -6,7 +6,7 @@
 ####有个小坑要注意consul 不在github.com/micro/go-micro/registry下，而是在github.com/micro/go-plugins/registry/ 包括 eureka,redis
 ###第一天
 
-###第二天
+###第二天 
 ####采用bat批处理文件的方式结合第一天学的命令行方式一次性注册多个服务
 ####prod.bat 文件内容如下：
 @echo off
