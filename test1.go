@@ -18,7 +18,7 @@ func CallApi2(s selector.Selector) {
 		client.ContentType("application/json"),
 	)
 	req := myClient.NewRequest("prodServices", "/v1/prods",
-		Models.ProdsRequest{Size: 2})
+		Models.ProdsRequest{Size: 6})
 	var rep Models.ProdListResponse
 	err := myClient.Call(context.Background(), req, &rep)
 	if err != nil {

@@ -30,11 +30,11 @@ func main() {
 	server := web.NewService(
 		web.Name("prodServices"),
 		//注掉是因为要使用server.init（）,同时注册多个服务的，使用init 必须使用命令行 go run prod_main.go --server_address 127.0.0.1:8003 注册多个服务就修改ip或者端口
-		//web.Address("localhost:8001"),
+		web.Address("localhost:8001"),
 		web.Handler(ginRouter),
 		web.Registry(consulReg),
 	)
 	//命令行方式启动必备
-	server.Init()
+	//server.Init()
 	server.Run()
 }

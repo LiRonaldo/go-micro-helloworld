@@ -30,8 +30,8 @@ type ProdModel struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	ProdID   int32  `protobuf:"varint,1,opt,name=ProdID,proto3" json:"ProdID,omitempty"`
-	ProdName string `protobuf:"bytes,2,opt,name=ProdName,proto3" json:"ProdName,omitempty"`
+	ProdID   int32  `protobuf:"varint,1,opt,name=ProdID,proto3" json:"pid,omitempty"`
+	ProdName string `protobuf:"bytes,2,opt,name=ProdName,proto3" json:"pname,omitempty"`
 }
 
 func (x *ProdModel) Reset() {
