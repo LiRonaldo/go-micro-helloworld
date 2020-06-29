@@ -28,6 +28,7 @@ func main() {
 		web.Handler(ginRouter),
 		web.Registry(consulReg),
 	)
+	//命令行方式启动必备
 	server.Init()
 	server.Run()
 }
