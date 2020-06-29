@@ -5,6 +5,7 @@ import (
 	"github.com/micro/go-micro/registry"
 	"github.com/micro/go-micro/web"
 	"github.com/micro/go-plugins/registry/consul"
+	"go-micro-helloworld/Helper"
 	"go-micro-helloworld/ProdService"
 )
 
@@ -16,7 +17,12 @@ func main() {
 	v1Group := ginRouter.Group("v1")
 	{
 		v1Group.Handle("POST", "/prods", func(context *gin.Context) {
-			context.JSON(200, gin.H{"data": ProdService.NewProdList(5)})
+			var pr Helper.ProdsRequest
+			err := context.Bind(&pr)
+			if err != nil || pr.Size <= 0 {
+				pr = Helper.ProdsRequest{Size: 2}
+			}
+			context.JSON(200, gin.H{"data": ProdService.NewProdList(pr.Size)})
 		})
 	}
 
