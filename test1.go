@@ -8,6 +8,7 @@ import (
 	"github.com/micro/go-micro/registry"
 	myhttp "github.com/micro/go-plugins/client/http"
 	"github.com/micro/go-plugins/registry/consul"
+	"go-micro-helloworld/Models"
 	"log"
 )
 
@@ -16,13 +17,14 @@ func CallApi2(s selector.Selector) {
 		client.Selector(s),
 		client.ContentType("application/json"),
 	)
-	req := myClient.NewRequest("prodServices", "/v1/prods", map[string]string{})
-	var rep map[string]interface{}
+	req := myClient.NewRequest("prodServices", "/v1/prods",
+		Models.ProdsRequest{Size: 2})
+	var rep Models.ProdListResponse
 	err := myClient.Call(context.Background(), req, &rep)
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(rep["data"])
+	fmt.Println(rep.Data)
 }
 func main() {
 	//获取一个consul
