@@ -6,7 +6,7 @@
 ####有个小坑要注意consul 不在github.com/micro/go-micro/registry下，而是在github.com/micro/go-plugins/registry/ 包括 eureka,redis
 ###第一天
 
-###第二天 
+###第二天
 ####采用bat批处理文件的方式结合第一天学的命令行方式一次性注册多个服务
 ####prod.bat 文件内容如下：
 @echo off
@@ -15,4 +15,5 @@ start "prod2" go run  prod_main.go --server_address 127.0.0.7:8002 &
 start "prod3" go run  prod_main.go --server_address 127.0.0.7:8003
 pause
 ####要注意采用命令行方式注册服务的话 要注掉web.Address("localhost:8001")，并添加server.init()方法，可见prod_main.go 文件
+####ignore 文件不生效的话 是因为忽略的文件不能被add ，所以清一下缓存 git rm -r --cached .   在重新add就行了
 ###第二天
