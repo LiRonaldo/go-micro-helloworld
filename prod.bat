@@ -1,3 +1,6 @@
-@echo off
-start "prod1" go run  prod_main.go --server_address 127.0.0.7:8001
-pause
+cd Services/protos
+protoc --micro_out=../ --go_out=../ Models.proto
+protoc --micro_out=../ --go_out=../ ProdService.proto
+protoc-go-inject-tag -input=../Models.pb.go
+protoc-go-inject-tag -input=../ProdService.pb.go
+cd ..&&cd ..
