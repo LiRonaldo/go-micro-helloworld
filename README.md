@@ -21,3 +21,6 @@ pause
 ####test1.go 使用proto文件去进去传输，prod_main 使用 普通.go文件去调用
 #### prod_main.go 相当于服务、可以通过test.go 去掉，prod_main.go  ,也可以通过postman去掉
 ###第二天
+###第五天###
+####添加熔断器，熔断器不在插件包下，cofig,common,do####
+###第五天###

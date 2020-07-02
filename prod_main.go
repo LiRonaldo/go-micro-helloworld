@@ -10,6 +10,7 @@ import (
 	"github.com/micro/go-plugins/registry/consul"
 	"go-micro-helloworld/Services"
 	"go-micro-helloworld/WebLib"
+	"go-micro-helloworld/Wrappers"
 )
 
 type logWrapper struct {
@@ -30,7 +31,7 @@ func main() {
 	consulReg := consul.NewRegistry(registry.Addrs("127.0.0.1:8500"))
 	myService := micro.NewService(
 		micro.Name("prodservice.client"),
-		micro.WrapClient(NewLogWrapper),
+		micro.WrapClient(Wrappers.NewLogWrapper),
 	)
 	//将服务端的服务变为客户端服务
 	prodService := Services.NewProdService("prodservice", myService.Client())
